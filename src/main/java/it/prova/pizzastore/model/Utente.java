@@ -144,6 +144,21 @@ public class Utente {
 		}
 		return false;
 	}
+	
+	public boolean isPizzaiolo() {
+		for (Ruolo ruoloItem : ruoli) {
+			if (ruoloItem.getCodice().equals(Ruolo.ROLE_PIZZAIOLO))
+				return true;
+		}
+		return false;
+	}
 
+	public boolean isFattorino() {
+		for (Ruolo ruoloItem : ruoli) {
+			if (ruoloItem.getCodice().equals(Ruolo.ROLE_FATTORINO))
+				return true;
+		}
+		return false;
+	}
 	
 }
