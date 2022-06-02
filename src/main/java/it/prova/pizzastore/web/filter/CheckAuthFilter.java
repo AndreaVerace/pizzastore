@@ -21,7 +21,7 @@ import it.prova.pizzastore.model.Utente;
 public class CheckAuthFilter implements Filter {
 
 	private static final String HOME_PATH = "";
-	private static final String[] EXCLUDED_URLS = {"/login.jsp","/LoginServlet","/LogoutServlet","/assets/"};
+	private static final String[] EXCLUDED_URLS = {"/login.jsp","/LoginServlet","/LogoutServlet","/assets/","/HomeServlet"};
 	private static final String[] PROTECTED_URLS = {"/admin/","/fattorino/","/pizzaiolo/"};
 
 	public CheckAuthFilter() {
@@ -51,7 +51,7 @@ public class CheckAuthFilter implements Filter {
 				return;
 			}
 			//controllo che utente abbia ruolo admin se nel path risulta presente /admin/
-			if(isPathForOnlyAdministrators(pathAttuale) && !utenteInSession.isAdmin()) {
+			if(isPathForOnly(pathAttuale) && !utenteInSession.isAdmin() || !utenteInSession.isPizzaiolo() || !utenteInSession.isFattorino()) {
 				httpRequest.setAttribute("messaggio", "Non si è autorizzati alla navigazione richiesta");
 				httpRequest.getRequestDispatcher("/home.jsp").forward(httpRequest, httpResponse);
 				return;
@@ -75,7 +75,7 @@ public class CheckAuthFilter implements Filter {
 		return false;
 	}
 	
-	private boolean isPathForOnlyAdministrators(String requestPath) {
+	private boolean isPathForOnly(String requestPath) {
 		for (String urlPatternItem : PROTECTED_URLS) {
 			if (requestPath.contains(urlPatternItem)) {
 				return true;
