@@ -53,10 +53,11 @@ public class Ordine {
 		
 	}
 	
-	public Ordine(String codice,Date dataOrdine) {
+	public Ordine(String codice) {
 		this.codice=codice;
-		this.dataOrdine=dataOrdine;
 	}
+
+	
 
 	public int costoTotaleOrdini() {
 		if(this.pizze == null || this.pizze.isEmpty()) {
