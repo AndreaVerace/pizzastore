@@ -58,6 +58,7 @@ public class Ordine {
 	}
 
 	
+	
 
 	public int costoTotaleOrdini() {
 		if(this.pizze == null || this.pizze.isEmpty()) {

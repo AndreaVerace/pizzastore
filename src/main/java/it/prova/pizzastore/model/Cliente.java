@@ -42,6 +42,10 @@ public class Cliente {
 		
 	}
 	
+	public Cliente(Long id) {
+		this.id=id;
+	}
+	
 	public Cliente(String nome,String cognome,String indirizzo) {
 		this.nome=nome;
 		this.cognome=cognome;

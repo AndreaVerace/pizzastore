@@ -59,8 +59,8 @@ public class UtenteDAOImpl implements UtenteDAO {
 
 	// questo metodo ci torna utile per capire se possiamo rimuovere un ruolo non
 	// essendo collegato ad un utente
-	public List<Utente> findAllByRuolo(Ruolo ruoloInput) throws Exception {
-		TypedQuery<Utente> query = entityManager.createQuery("select u FROM Utente u join u.ruoli r where r = :ruolo",
+	public List<Utente> findAllByRuolo(String ruoloInput) throws Exception {
+		TypedQuery<Utente> query = entityManager.createQuery("select u FROM Utente u join u.ruoli r where r.codice = :ruolo",
 				Utente.class);
 		query.setParameter("ruolo", ruoloInput);
 		return query.getResultList();

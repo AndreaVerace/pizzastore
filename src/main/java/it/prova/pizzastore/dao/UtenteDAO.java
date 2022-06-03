@@ -8,7 +8,7 @@ import it.prova.pizzastore.model.Utente;
 
 public interface UtenteDAO extends IBaseDAO<Utente> {
 
-	public List<Utente> findAllByRuolo(Ruolo ruoloInput) throws Exception;
+	public List<Utente> findAllByRuolo(String ruoloInput) throws Exception;
 
 	public Optional<Utente> findByUsernameAndPassword(String username, String password) throws Exception;
 

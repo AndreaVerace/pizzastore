@@ -1,4 +1,4 @@
-package it.prova.pizzastore.web.servlet.pizza;
+package it.prova.pizzastore.web.servlet.ordine;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -12,36 +12,38 @@ import org.apache.commons.lang3.math.NumberUtils;
 import it.prova.pizzastore.exceptions.ElementNotFoundException;
 import it.prova.pizzastore.service.MyServiceFactory;
 
-
-@WebServlet("/ExecuteDeletePizzaServlet")
-public class ExecuteDeletePizzaServlet extends HttpServlet {
+/**
+ * Servlet implementation class ExecuteDeleteOrdineServlet
+ */
+@WebServlet("/ExecuteDeleteOrdineServlet")
+public class ExecuteDeleteOrdineServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-
+  
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String idPizzaParam = request.getParameter("idPizza");
+		String idOrdineParam = request.getParameter("idOrdine");
 		
-		if (!NumberUtils.isCreatable(idPizzaParam)) {
+		if (!NumberUtils.isCreatable(idOrdineParam)) {
 			// qui ci andrebbe un messaggio nei file di log costruito ad hoc se fosse attivo
 			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");
-			request.getRequestDispatcher("list.jsp").forward(request, response);
+			request.getRequestDispatcher("listOrdine.jsp").forward(request, response);
 			return;
 		}
 		
 		try {
-			MyServiceFactory.getPizzaServiceInstance().rimuovi(Long.parseLong(idPizzaParam));
+			MyServiceFactory.getOrdineServiceInstance().rimuovi(Long.parseLong(idOrdineParam));
 		} catch (ElementNotFoundException e) {
-			request.getRequestDispatcher("ExecuteListPizzaServlet?operationResult=NOT_FOUND").forward(request, response);
+			request.getRequestDispatcher("ExecuteListOrdineServlet?operationResult=NOT_FOUND").forward(request, response);
 			return;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");
-			request.getRequestDispatcher("list.jsp").forward(request, response);
+			request.getRequestDispatcher("listOrdine.jsp").forward(request, response);
 			return;
 		}
 		
-		response.sendRedirect("ExecuteListPizzaServlet?operationResult=SUCCESS");
+		response.sendRedirect("ExecuteListOrdineServlet?operationResult=SUCCESS");
 	}
 
 }

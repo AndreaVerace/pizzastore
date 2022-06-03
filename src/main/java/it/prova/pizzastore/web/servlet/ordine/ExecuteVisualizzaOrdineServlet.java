@@ -1,4 +1,4 @@
-package it.prova.pizzastore.web.servlet.pizza;
+package it.prova.pizzastore.web.servlet.ordine;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -9,36 +9,37 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.math.NumberUtils;
 
-import it.prova.pizzastore.model.Pizza;
+import it.prova.pizzastore.model.Ordine;
 import it.prova.pizzastore.service.MyServiceFactory;
 
 /**
- * Servlet implementation class ExecuteVisualizzaPizzaServlet
+ * Servlet implementation class ExecuteVisualizzaOrdineServlet
  */
-@WebServlet("/ExecuteVisualizzaPizzaServlet")
-public class ExecuteVisualizzaPizzaServlet extends HttpServlet {
+@WebServlet("/ExecuteVisualizzaOrdineServlet")
+public class ExecuteVisualizzaOrdineServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    
+
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String idPizzaParam = request.getParameter("idPizza");
+		String idOrdineParam = request.getParameter("idOrdine");
 		
-		if (!NumberUtils.isCreatable(idPizzaParam)) {
+		if (!NumberUtils.isCreatable(idOrdineParam)) {
 			// qui ci andrebbe un messaggio nei file di log costruito ad hoc se fosse attivo
 			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");
-			request.getRequestDispatcher("list.jsp").forward(request, response);
+			request.getRequestDispatcher("listOrdine.jsp").forward(request, response);
 			return;
 		}
 		
 		try {
-			Pizza pizzaInstance = MyServiceFactory.getPizzaServiceInstance()
-					.caricaSingoloElemento(Long.parseLong(idPizzaParam));
+			Ordine ordineInstance = MyServiceFactory.getOrdineServiceInstance()
+					.caricaSingoloElemento(Long.parseLong(idOrdineParam));
 			
-			request.setAttribute("show_pizza_attr", pizzaInstance);
+			request.setAttribute("show_ordine_attr", ordineInstance);
 			
-			if(pizzaInstance == null) {
+			
+			if(ordineInstance == null) {
 				request.setAttribute("errorMessage", "Elemento non trovato.");
-				request.getRequestDispatcher("ExecuteListPizzaServlet?operationResult=NOT_FOUND").forward(request,
+				request.getRequestDispatcher("ExecuteListOrdineServlet?operationResult=NOT_FOUND").forward(request,
 						response);
 				return;
 			}
@@ -49,13 +50,12 @@ public class ExecuteVisualizzaPizzaServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");
-			request.getRequestDispatcher("list.jsp").forward(request, response);
+			request.getRequestDispatcher("listOrdine.jsp").forward(request, response);
 			return;
 		}
 		
-		request.getRequestDispatcher("/pizzaiolo/show.jsp").forward(request, response);
+		request.getRequestDispatcher("/pizzaiolo/showOrdine.jsp").forward(request, response);
 	}
 
 	
-
 }

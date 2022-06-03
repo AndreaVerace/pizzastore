@@ -10,6 +10,7 @@ import org.apache.commons.lang3.math.NumberUtils;
 import it.prova.pizzastore.model.Cliente;
 import it.prova.pizzastore.model.Ordine;
 import it.prova.pizzastore.model.Pizza;
+import it.prova.pizzastore.model.Utente;
 
 public class UtilityForm {
 
@@ -54,18 +55,22 @@ public class UtilityForm {
 	}
 	
 	public static Ordine createOrdineFromParams(String codiceInputparam, String dataOrdineInputParam,
-			String closedInputParam) {
+			String closedInputParam,String idUtenteParam,String idClienteParam) {
 
 		Ordine result = new Ordine(codiceInputparam);
 		result.setClosed(Boolean.parseBoolean(closedInputParam));
 		result.setDataOrdine(parseDateArrivoFromString(dataOrdineInputParam));
+		result.setUtente(new Utente(Long.parseLong(idUtenteParam)));
+		result.setCliente(new Cliente(Long.parseLong(idClienteParam)));
 		return result;
 	}
 
 	public static boolean validateOrdineBean(Ordine ordineToBeValidated) {
 		// prima controlliamo che non siano vuoti i parametri
 		if (StringUtils.isBlank(ordineToBeValidated.getCodice())
-				|| ordineToBeValidated.getDataOrdine() == null) {
+				|| ordineToBeValidated.getDataOrdine() == null
+				|| ordineToBeValidated.getUtente() == null
+				|| ordineToBeValidated.getCliente() == null) {
 			return false;
 		}
 		return true;
