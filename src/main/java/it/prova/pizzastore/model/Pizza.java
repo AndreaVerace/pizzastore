@@ -43,11 +43,11 @@ public class Pizza {
 		this.ingredienti=ingredienti;
 	}
 	
-	public Pizza (String descrizione,String ingredienti,int prezzoBase) {
+	public Pizza (String descrizione,String ingredienti,Integer prezzoBase) {
 		this.descrizione=descrizione;
 		this.ingredienti=ingredienti;
 		this.prezzoBase=prezzoBase;
-		this.attivo=true;
+		
 	}
 
 	public Long getId() {

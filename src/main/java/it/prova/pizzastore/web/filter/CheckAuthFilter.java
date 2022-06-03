@@ -59,13 +59,13 @@ public class CheckAuthFilter implements Filter {
 			
 			if(isPathForOnlyPizzaiolo(pathAttuale) && !utenteInSession.isPizzaiolo()) {
 				httpRequest.setAttribute("messaggio", "Non si è autorizzati alla navigazione richiesta");
-				httpRequest.getRequestDispatcher("/homePagePizzaiolo.jsp").forward(httpRequest, httpResponse);
+				httpRequest.getRequestDispatcher("pizzaiolo/homePagePizzaiolo.jsp").forward(httpRequest, httpResponse);
 				return;
 			}
 			
 			if(isPathForOnlyFattorino(pathAttuale) && !utenteInSession.isFattorino()) {
 				httpRequest.setAttribute("messaggio", "Non si è autorizzati alla navigazione richiesta");
-				httpRequest.getRequestDispatcher("/homePageFattorino.jsp").forward(httpRequest, httpResponse);
+				httpRequest.getRequestDispatcher("fattorino/homePageFattorino.jsp").forward(httpRequest, httpResponse);
 				return;
 			}
 		}

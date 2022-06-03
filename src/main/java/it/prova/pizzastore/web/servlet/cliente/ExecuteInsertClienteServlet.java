@@ -27,7 +27,7 @@ public class ExecuteInsertClienteServlet extends HttpServlet {
 				.createClienteFromParams(nomeParam, cognomeParam, indirizzoParam, attivoParam);
 		
 		if (!UtilityForm.validateClienteBean(clienteInstance)) {
-			request.setAttribute("insert_regista_attr", clienteInstance);
+			request.setAttribute("insert_cliente_attr", clienteInstance);
 			request.setAttribute("errorMessage", "Attenzione sono presenti errori di validazione");
 			request.getRequestDispatcher("/admin/insert.jsp").forward(request, response);
 			return;
