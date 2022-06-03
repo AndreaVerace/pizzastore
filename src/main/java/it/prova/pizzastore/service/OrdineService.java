@@ -5,6 +5,7 @@ import java.util.List;
 import it.prova.pizzastore.dao.OrdineDAO;
 import it.prova.pizzastore.dao.PizzaDAO;
 import it.prova.pizzastore.model.Ordine;
+import it.prova.pizzastore.model.Utente;
 
 
 public interface OrdineService {
@@ -22,4 +23,8 @@ public interface OrdineService {
 	public void rimuovi(Long idOrdine) throws Exception;
 	
 	public List<Ordine> findByExample(Ordine example) throws Exception;
+	
+	public List<Ordine> listaOrdiniAperti(String fattorino) throws Exception;
+	
+	public void chiudiOrdine(Long idOrdine) throws Exception;
 }

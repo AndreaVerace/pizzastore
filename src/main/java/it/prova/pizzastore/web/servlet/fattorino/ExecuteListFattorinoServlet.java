@@ -1,4 +1,4 @@
-package it.prova.pizzastore.web.servlet.ordine;
+package it.prova.pizzastore.web.servlet.fattorino;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -12,13 +12,13 @@ import org.apache.commons.lang3.StringUtils;
 import it.prova.pizzastore.service.MyServiceFactory;
 
 /**
- * Servlet implementation class ExecuteListOrdineServlet
+ * Servlet implementation class ExecuteListFattorinoServlet
  */
-@WebServlet("/ExecuteListOrdineServlet")
-public class ExecuteListOrdineServlet extends HttpServlet {
+@WebServlet("/ExecuteListFattorinoServlet")
+public class ExecuteListFattorinoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-  
+   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			//se nell'url della request è presente SUCCESS significa che devo mandare un 
@@ -28,16 +28,16 @@ public class ExecuteListOrdineServlet extends HttpServlet {
 				request.setAttribute("successMessage", "Operazione effettuata con successo");
 			
 			request.setAttribute("ordini_list_attribute",
-					MyServiceFactory.getOrdineServiceInstance().listAllElements());
+					MyServiceFactory.getOrdineServiceInstance().listaOrdiniAperti("fattorino"));
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");
-			request.getRequestDispatcher("/pizzaiolo/homePagePizzaiolo.jsp").forward(request, response);
+			request.getRequestDispatcher("/fattorino/homePageFattorino.jsp").forward(request, response);
 			return;
 		}
 
 		// andiamo ai risultati
-		request.getRequestDispatcher("/pizzaiolo/listOrdine.jsp").forward(request, response);
+		request.getRequestDispatcher("/fattorino/listOrdine.jsp").forward(request, response);
 	}
 
 

@@ -8,6 +8,7 @@ import it.prova.pizzastore.dao.OrdineDAO;
 import it.prova.pizzastore.exceptions.ElementNotFoundException;
 import it.prova.pizzastore.model.Ordine;
 import it.prova.pizzastore.model.Pizza;
+import it.prova.pizzastore.model.Utente;
 import it.prova.pizzastore.web.listener.LocalEntityManagerFactoryListener;
 
 public class OrdineServiceImpl implements OrdineService {
@@ -148,6 +149,48 @@ public class OrdineServiceImpl implements OrdineService {
 		} finally {
 			LocalEntityManagerFactoryListener.closeEntityManager(entityManager);
 		}
+	}
+
+	@Override
+	public List<Ordine> listaOrdiniAperti(String fattorino) throws Exception {
+		EntityManager entityManager = LocalEntityManagerFactoryListener.getEntityManager();
+
+		try {
+			// uso l'injection per il dao
+			ordineDAO.setEntityManager(entityManager);
+
+			// eseguo quello che realmente devo fare
+			return ordineDAO.listaOrdiniAperti(fattorino);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			LocalEntityManagerFactoryListener.closeEntityManager(entityManager);
+		}
+	}
+
+	@Override
+	public void chiudiOrdine(Long idOrdine) throws Exception {
+		EntityManager entityManager = LocalEntityManagerFactoryListener.getEntityManager();
+
+		try {
+			entityManager.getTransaction().begin();
+			// uso l'injection per il dao
+			ordineDAO.setEntityManager(entityManager);
+
+			// eseguo quello che realmente devo fare
+			 ordineDAO.chiudiOrdine(idOrdine);
+
+			 entityManager.getTransaction().commit();
+		} catch (Exception e) {
+			entityManager.getTransaction().rollback();
+			e.printStackTrace();
+			throw e;
+		} finally {
+			LocalEntityManagerFactoryListener.closeEntityManager(entityManager);
+		}
+		
 	}
 
 }

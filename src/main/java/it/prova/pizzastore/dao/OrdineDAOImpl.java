@@ -7,11 +7,13 @@ import java.util.Map;
 import java.util.Optional;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import org.apache.commons.lang3.StringUtils;
 
 import it.prova.pizzastore.model.Ordine;
+import it.prova.pizzastore.model.Utente;
 
 public class OrdineDAOImpl implements OrdineDAO {
 
@@ -96,6 +98,22 @@ public class OrdineDAOImpl implements OrdineDAO {
 		}
 
 		return typedQuery.getResultList();
+	}
+
+	@Override
+	public List<Ordine> listaOrdiniAperti(String fattorino) throws Exception {
+		TypedQuery<Ordine> query = entityManager.createQuery("select o FROM Ordine o left join o.utente u"
+				+ " where o.closed = 'false' and u.username like :username", Ordine.class);
+		query.setParameter("username", fattorino);
+		return query.getResultList();
+	}
+
+	@Override
+	public void chiudiOrdine(Long idOrdine) throws Exception {
+		Query query = entityManager.createNativeQuery("update ordine o set o.closed = 1"
+				+ " where o.id = ?");
+		query.setParameter(1, idOrdine);
+		query.executeUpdate();
 	}
 
 }
