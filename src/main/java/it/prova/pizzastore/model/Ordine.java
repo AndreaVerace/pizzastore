@@ -35,7 +35,7 @@ public class Ordine {
 	private boolean closed;
 	
 	@Column(name = "costo_totale_ordine")
-	private Integer costoTotaleOrdine = 0;
+	private Integer costoTotaleOrdine;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "utente_id",nullable = false)

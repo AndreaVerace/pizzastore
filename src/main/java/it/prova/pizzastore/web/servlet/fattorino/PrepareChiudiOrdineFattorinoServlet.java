@@ -53,7 +53,7 @@ public class PrepareChiudiOrdineFattorinoServlet extends HttpServlet {
 			return;
 		}
 		
-		request.getRequestDispatcher("fattorino/chiudi.jsp").forward(request, response);
+		request.getRequestDispatcher("chiudi.jsp").forward(request, response);
 		
 		 
 	}

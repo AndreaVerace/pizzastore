@@ -16,7 +16,7 @@ public class PrepareInsertClienteServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("insert_cliente_attr", new Cliente());
-		request.getRequestDispatcher("admin/insert.jsp").forward(request, response);
+		request.getRequestDispatcher("insert.jsp").forward(request, response);
 	}
 
 
