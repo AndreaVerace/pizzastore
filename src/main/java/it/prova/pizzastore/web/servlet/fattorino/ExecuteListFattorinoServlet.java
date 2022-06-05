@@ -14,7 +14,7 @@ import it.prova.pizzastore.service.MyServiceFactory;
 /**
  * Servlet implementation class ExecuteListFattorinoServlet
  */
-@WebServlet("/ExecuteListFattorinoServlet")
+@WebServlet(name = "/fattorino/ExecuteListFattorinoServlet",urlPatterns = {"/fattorino/ExecuteListFattorinoServlet"})
 public class ExecuteListFattorinoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -37,7 +37,7 @@ public class ExecuteListFattorinoServlet extends HttpServlet {
 		}
 
 		// andiamo ai risultati
-		request.getRequestDispatcher("/fattorino/listOrdine.jsp").forward(request, response);
+		request.getRequestDispatcher("listOrdine.jsp").forward(request, response);
 	}
 
 

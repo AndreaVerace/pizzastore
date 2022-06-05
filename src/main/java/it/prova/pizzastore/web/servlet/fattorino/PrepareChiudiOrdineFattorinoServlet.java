@@ -15,7 +15,7 @@ import it.prova.pizzastore.service.MyServiceFactory;
 /**
  * Servlet implementation class PrepareChiudiOrdineFattorinoServlet
  */
-@WebServlet("/PrepareChiudiOrdineFattorinoServlet")
+@WebServlet(name = "/fattorino/PrepareChiudiOrdineFattorinoServlet",urlPatterns = {"/fattorino/PrepareChiudiOrdineFattorinoServlet"})
 public class PrepareChiudiOrdineFattorinoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

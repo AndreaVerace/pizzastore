@@ -63,7 +63,7 @@
 					    <!-- end card body -->
 					    
 					    <div class='card-footer'>
-					    	<form action="ExecuteChiudiOrdineFattorinoServlet" method="post">
+					    	<form action="${pageContext.request.contextPath}/fattorino/ExecuteChiudiOrdineFattorinoServlet" method="post">
 					    		<input type="hidden" name="idOrdine" value="${chiudi_ordine_attr.id}">
 						    	<button type="submit" name="submit" id="submit" class="btn btn-danger">Conferma</button>
 						        <a href="ExecuteListOrdineServlet" class='btn btn-outline-secondary' style='width:80px'>

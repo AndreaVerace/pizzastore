@@ -10,13 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 import it.prova.pizzastore.model.Cliente;
 
 
-@WebServlet("/PrepareInsertClienteServlet")
+@WebServlet(name = "/admin/PrepareInsertClienteServlet",urlPatterns = {"/admin/PrepareInsertClienteServlet"})
 public class PrepareInsertClienteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("insert_cliente_attr", new Cliente());
-		request.getRequestDispatcher("/admin/insert.jsp").forward(request, response);
+		request.getRequestDispatcher("admin/insert.jsp").forward(request, response);
 	}
 
 

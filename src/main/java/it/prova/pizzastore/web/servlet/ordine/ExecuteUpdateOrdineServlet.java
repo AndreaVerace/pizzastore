@@ -36,6 +36,7 @@ public class ExecuteUpdateOrdineServlet extends HttpServlet {
 		String closedParam = request.getParameter("closed");
 		String utenteParam = request.getParameter("utente.id");
 		String clienteParam = request.getParameter("cliente.id");
+		String[] pizzeParam = request.getParameterValues("pizza.id");
 		
 		Ordine ordineInstance = UtilityForm
 				.createOrdineFromParams(codiceParam, dataOrdineParam, closedParam, utenteParam, clienteParam);

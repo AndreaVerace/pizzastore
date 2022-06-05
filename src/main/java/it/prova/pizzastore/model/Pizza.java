@@ -38,6 +38,10 @@ public class Pizza {
 		
 	}
 	
+	public Pizza(Long id) {
+		this.id=id;
+	}
+	
 	public Pizza (String descrizione,String ingredienti) {
 		this.descrizione=descrizione;
 		this.ingredienti=ingredienti;

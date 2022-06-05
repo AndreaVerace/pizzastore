@@ -14,7 +14,7 @@ import it.prova.pizzastore.model.Cliente;
 import it.prova.pizzastore.service.MyServiceFactory;
 
 
-@WebServlet("/ExecuteDeleteClienteServlet")
+@WebServlet(name = "/admin/ExecuteDeleteClienteServlet" ,urlPatterns = {"/admin/ExecuteDeleteClienteServlet"})
 public class ExecuteDeleteClienteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

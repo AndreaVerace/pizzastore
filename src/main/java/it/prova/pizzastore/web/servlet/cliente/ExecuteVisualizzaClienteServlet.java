@@ -13,7 +13,7 @@ import it.prova.pizzastore.model.Cliente;
 import it.prova.pizzastore.service.MyServiceFactory;
 
 
-@WebServlet("/ExecuteVisualizzaClienteServlet")
+@WebServlet(name = "/admin/ExecuteVisualizzaClienteServlet",urlPatterns = {"/admin/ExecuteVisualizzaClienteServlet"})
 public class ExecuteVisualizzaClienteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

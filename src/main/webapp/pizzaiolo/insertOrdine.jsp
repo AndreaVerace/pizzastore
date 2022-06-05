@@ -52,8 +52,8 @@
 									<label for="closed" class="form-label">Stato Ordine<span class="text-danger">*</span></label>
 								    <select class="form-select" id="closed" name="closed" required>
 								    	<option value="" selected> - Selezionare - </option>
-								      	<option value="true" ${insert_ordine_attr.closed == 'true'?'selected':''} >Stato Ordine ATTIVO</option>
-								      	<option value="false" ${insert_ordine_attr.closed == 'false'?'selected':''} >Stato Ordine NON ATTIVO</option>
+								      	<option value="true" ${insert_ordine_attr.closed == 'true'?'selected':''} >Stato Ordine CHIUSO</option>
+								      	<option value="false" ${insert_ordine_attr.closed == 'false'?'selected':''} >Stato Ordine APERTO</option>
 								    </select>
 								</div>
 								
@@ -76,16 +76,13 @@
 								      	</c:forEach>
 								    </select>
 								</div>
-															
 								
-								<div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
 								<c:forEach items="${pizze_list_attribute }" var="pizzaItem">
-								  <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
-								  <label class="btn btn-outline-primary" for="btncheck1"> ${pizzaItem.descrizione }</label>
-								  </c:forEach>
-								  
-								</div>
-								
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" type="checkbox" id="pizza.id" name="pizza.id" value="${pizzaItem.id}">
+										<label class="form-check-label" for="pizza.id"> ${pizzaItem.descrizione }</label><br>
+									</div>
+								</c:forEach>
 								
 								<div class="col-12">
 									<button type="submit" name="insertSubmit" value="insertSubmit" id="insertSubmit" class="btn btn-primary">Conferma</button>

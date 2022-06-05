@@ -40,7 +40,7 @@
 				        <h5>Lista dei risultati</h5> 
 				    </div>
 				    <div class='card-body'>
-				    	<a class="btn btn-primary " href="PrepareInsertClienteServlet">Add New</a>
+				    	<a class="btn btn-primary " href="${pageContext.request.contextPath}/admin/PrepareInsertClienteServlet">Add New</a>
 				    
 				        <div class='table-responsive'>
 				            <table class='table table-striped ' >

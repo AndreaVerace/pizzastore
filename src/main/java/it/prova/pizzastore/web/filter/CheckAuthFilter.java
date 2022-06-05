@@ -22,7 +22,9 @@ public class CheckAuthFilter implements Filter {
 
 	private static final String HOME_PATH = "";
 	private static final String[] EXCLUDED_URLS = {"/login.jsp","/LoginServlet","/LogoutServlet","/assets/"};
-	private static final String[] PROTECTED_URLS = {"/admin/","/fattorino/","/pizzaiolo/","/admin/insert.jsp"};
+	private static final String[] ADMIN_URLS = {"/admin/"};
+	private static final String[] PIZZAIOLO_URLS = {"/pizzaiolo/"};
+	private static final String[] FATTORINO_URLS = {"/fattorino/"};
 
 	public CheckAuthFilter() {
 	}
@@ -88,7 +90,7 @@ public class CheckAuthFilter implements Filter {
 	}
 	
 	private boolean isPathForOnlyAdmin(String requestPath) {
-		for (String urlPatternItem : PROTECTED_URLS) {
+		for (String urlPatternItem : ADMIN_URLS) {
 			if (requestPath.contains(urlPatternItem)) {
 				return true;
 			}
@@ -97,7 +99,7 @@ public class CheckAuthFilter implements Filter {
 	}
 	
 	private boolean isPathForOnlyPizzaiolo(String requestPath) {
-		for (String urlPatternItem : PROTECTED_URLS) {
+		for (String urlPatternItem : PIZZAIOLO_URLS) {
 			if (requestPath.contains(urlPatternItem)) {
 				return true;
 			}
@@ -106,7 +108,7 @@ public class CheckAuthFilter implements Filter {
 	}
 
 	private boolean isPathForOnlyFattorino(String requestPath) {
-		for (String urlPatternItem : PROTECTED_URLS) {
+		for (String urlPatternItem : FATTORINO_URLS) {
 			if (requestPath.contains(urlPatternItem)) {
 				return true;
 			}

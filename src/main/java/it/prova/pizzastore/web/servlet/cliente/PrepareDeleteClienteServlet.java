@@ -13,7 +13,7 @@ import it.prova.pizzastore.model.Cliente;
 import it.prova.pizzastore.service.MyServiceFactory;
 
 
-@WebServlet("/PrepareDeleteClienteServlet")
+@WebServlet(name = "/admin/PrepareDeleteClienteServlet",urlPatterns = {"/admin/PrepareDeleteClienteServlet"})
 public class PrepareDeleteClienteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
  
@@ -51,7 +51,7 @@ public class PrepareDeleteClienteServlet extends HttpServlet {
 			return;
 		}
 		
-		request.getRequestDispatcher("/admin/delete.jsp").forward(request, response);
+		request.getRequestDispatcher("admin/delete.jsp").forward(request, response);
 	}
 
 

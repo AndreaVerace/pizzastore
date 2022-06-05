@@ -51,8 +51,9 @@
 				                        <th>Closed?</th>
 				                        <th>Fattorino id :</th>
 				                        <th>Cliente id :</th>
-				                        <th>Pizze</th>
+				                        
 				                        <th>Costo Totale Ordine</th>
+				                        <th> Azioni </th>
 				                    </tr>
 				                </thead>
 				                <tbody>
@@ -63,9 +64,7 @@
 											<td>${ordineItem.closed }</td>
 											<td>${ordineItem.utente.id }</td>
 											<td>${ordineItem.cliente.id }</td>
-											<c:forEach items="${pizze_list_attribute}" var="pizzeItem">
-												<td>${pizzeItem.descrizione }</td>
-											</c:forEach>
+											
 											<td>${ordineItem.costoTotaleOrdine }</td>
 											<td>
 									

@@ -57,7 +57,7 @@
 					    <!-- end card body -->
 					    
 					    <div class='card-footer'>
-					    	<form action="ExecuteDeleteClienteServlet" method="post">
+					    	<form action="${pageContext.request.contextPath}/admin/ExecuteDeleteClienteServlet" method="post">
 					    		<input type="hidden" name="idCliente" value="${delete_cliente_attr.id}">
 						    	<button type="submit" name="submit" id="submit" class="btn btn-danger">Conferma</button>
 						        <a href="ExecuteListClienteServlet" class='btn btn-outline-secondary' style='width:80px'>

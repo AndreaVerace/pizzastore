@@ -35,7 +35,7 @@ public class Ordine {
 	private boolean closed;
 	
 	@Column(name = "costo_totale_ordine")
-	private int costoTotaleOrdine = costoTotaleOrdini();
+	private Integer costoTotaleOrdine = 0;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "utente_id",nullable = false)
@@ -60,16 +60,16 @@ public class Ordine {
 	
 	
 
-	public int costoTotaleOrdini() {
+	public void costoTotaleOrdini() {
+		
 		if(this.pizze == null || this.pizze.isEmpty()) {
-			this.costoTotaleOrdine = 0;	
+				this.costoTotaleOrdine = 0;
 		}
 		else {
 			for(Pizza p : this.pizze) {
 				this.costoTotaleOrdine += p.getPrezzoBase();
 			}
 		}
-		return this.costoTotaleOrdine;
 	}
 
 	public Long getId() {
@@ -104,11 +104,11 @@ public class Ordine {
 		this.closed = closed;
 	}
 
-	public int getCostoTotaleOrdine() {
+	public Integer getCostoTotaleOrdine() {
 		return costoTotaleOrdine;
 	}
 
-	public void setCostoTotaleOrdine(int costoTotaleOrdine) {
+	public void setCostoTotaleOrdine(Integer costoTotaleOrdine) {
 		this.costoTotaleOrdine = costoTotaleOrdine;
 	}
 

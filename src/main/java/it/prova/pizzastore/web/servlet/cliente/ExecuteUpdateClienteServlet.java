@@ -16,7 +16,7 @@ import it.prova.pizzastore.utility.UtilityForm;
 /**
  * Servlet implementation class ExecuteUpdateClienteServlet
  */
-@WebServlet("/ExecuteUpdateClienteServlet")
+@WebServlet(name = "/admin/ExecuteUpdateClienteServlet",urlPatterns = {"/admin/ExecuteUpdateClienteServlet"})
 public class ExecuteUpdateClienteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
