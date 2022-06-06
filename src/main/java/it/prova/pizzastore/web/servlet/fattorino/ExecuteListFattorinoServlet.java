@@ -32,7 +32,7 @@ public class ExecuteListFattorinoServlet extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");
-			request.getRequestDispatcher("/fattorino/homePageFattorino.jsp").forward(request, response);
+			request.getRequestDispatcher("homePageFattorino.jsp").forward(request, response);
 			return;
 		}
 

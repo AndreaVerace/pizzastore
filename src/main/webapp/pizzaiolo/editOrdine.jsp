@@ -11,7 +11,7 @@
 	 </head>
 <body>
 	<!-- Fixed navbar -->
-	   		<jsp:include page="./navbar.jsp"></jsp:include>
+	   		<jsp:include page="../navbar.jsp"></jsp:include>
 	    
 			
 			<!-- Begin page content -->
@@ -32,7 +32,7 @@
 							<h6 class="card-title">I campi con <span class="text-danger">*</span> sono obbligatori</h6>
 		
 		
-							<form method="post" action="ExecuteUpdateOrdineServlet" class="row g-3" novalidate="novalidate">
+							<form method="post" action="${pageContext.request.contextPath}/pizzaiolo/ExecuteUpdateOrdineServlet" class="row g-3" novalidate="novalidate">
 							
 							
 								<div class="col-md-6">
@@ -76,6 +76,13 @@
 								    </select>
 								</div>
 								
+								<c:forEach items="${pizze_list_attribute }" var="pizzaItem">
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" type="checkbox" id="pizza.id" name="pizza.id" value="${pizzaItem.id}">
+										<label class="form-check-label" for="pizza.id"> ${pizzaItem.descrizione }</label><br>
+									</div>
+								</c:forEach>
+								
 								<input type="hidden" name="idOrdine" value="${edit_ordine_attr.id}">
 						    	<button type="submit" name="submit" id="submit" class="btn btn-danger">Conferma</button>
 		
@@ -95,6 +102,6 @@
 			</main>
 			
 			<!-- Footer -->
-			<jsp:include page="./footer.jsp" />
+			<jsp:include page="../footer.jsp" />
 </body>
 </html>

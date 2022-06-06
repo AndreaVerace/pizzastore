@@ -13,7 +13,7 @@ import it.prova.pizzastore.model.Pizza;
 import it.prova.pizzastore.service.MyServiceFactory;
 
 
-@WebServlet("/PrepareDeletePizzaServlet")
+@WebServlet(name = "/pizzaiolo/PrepareDeletePizzaServlet",urlPatterns = {"/pizzaiolo/PrepareDeletePizzaServlet"})
 public class PrepareDeletePizzaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

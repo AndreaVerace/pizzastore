@@ -52,7 +52,7 @@ public class PrepareUpdateClienteServlet extends HttpServlet {
 			return;
 		}
 		
-		request.getRequestDispatcher("admin/edit.jsp").forward(request, response);
+		request.getRequestDispatcher("edit.jsp").forward(request, response);
 	}
 
 	

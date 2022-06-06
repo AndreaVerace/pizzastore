@@ -13,7 +13,7 @@ import it.prova.pizzastore.service.MyServiceFactory;
 /**
  * Servlet implementation class PrepareSearchOrdineServlet
  */
-@WebServlet("/PrepareSearchOrdineServlet")
+@WebServlet(name = "/pizzaiolo/PrepareSearchOrdineServlet",urlPatterns = {"/pizzaiolo/PrepareSearchOrdineServlet"})
 public class PrepareSearchOrdineServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

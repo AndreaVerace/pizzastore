@@ -3,9 +3,9 @@
 	 <head>
 	 
 	 	<!-- Common imports in pages -->
-	 	<jsp:include page="../pizzaiolo/header.jsp" />
+	 	<jsp:include page="../header.jsp" />
 		<!-- Custom styles per le features di bootstrap 'Columns with icons' -->
-	   <link href="./assets/css/features.css" rel="stylesheet">
+	   <link href="../assets/css/features.css" rel="stylesheet">
 	   
 	   <title>Raccolta Pizze e Ordini</title>
 	 </head>
@@ -36,7 +36,7 @@
 	   
 	   
 	   		<!-- Fixed navbar -->
-	   		<jsp:include page="./navbar.jsp"></jsp:include>
+	   		<jsp:include page="../navbar.jsp"></jsp:include>
 	    
 			
 			<!-- Begin page content -->
@@ -61,7 +61,6 @@
 			    </div>
 			    
 			  </div>
-			  
 			  <!--  features di bootstrap 'Columns with icons'  -->
 			  <div class="container px-4 py-5" id="featured-3">
 			    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
@@ -71,7 +70,7 @@
 			        </div>
 			        <h2>Ricerca tutte le Pizze</h2>
 			        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-			        <a href="ExecuteListPizzaServlet" class="icon-link">
+			        <a href="${pageContext.request.contextPath}/pizzaiolo/ExecuteListPizzaServlet" class="icon-link">
 			          Vai alla funzionalità
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
 			        </a>
@@ -82,7 +81,7 @@
 			        </div>
 			        <h2>Inserisci Pizza</h2>
 			        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-			        <a href="PrepareInsertPizzaServlet" class="icon-link">
+			        <a href="${pageContext.request.contextPath}/pizzaiolo/PrepareInsertPizzaServlet" class="icon-link">
 			          Vai alla funzionalità
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
 			        </a>
@@ -92,7 +91,7 @@
 			        </div>
 			        <h2>Ricerca tutte gli Ordini</h2>
 			        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-			        <a href="ExecuteListOrdineServlet" class="icon-link">
+			        <a href="${pageContext.request.contextPath}/pizzaiolo/ExecuteListOrdineServlet" class="icon-link">
 			          Vai alla funzionalità
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
 			        </a>
@@ -103,15 +102,36 @@
 			        </div>
 			        <h2>Inserisci Ordine</h2>
 			        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-			        <a href="PrepareInsertOrdineServlet" class="icon-link">
+			        <a href="${pageContext.request.contextPath}/pizzaiolo/PrepareInsertOrdineServlet" class="icon-link">
 			          Vai alla funzionalità
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
 			        </a>
 			      </div>	
-			  
+			  	   <div class="feature col">
+			        <div class="feature-icon bg-primary bg-gradient">
+			          <svg class="bi" width="1em" height="1em"><use xlink:href="#people-circle"/></svg>
+			        </div>
+			        <h2>Cerca Specifico Ordine</h2>
+			        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+			        <a href="${pageContext.request.contextPath}/pizzaiolo/PrepareSearchOrdineServlet" class="icon-link">
+			          Vai alla funzionalità
+			          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
+			        </a>
+			      </div>		
+			  	  <div class="feature col">
+			        <div class="feature-icon bg-primary bg-gradient">
+			          <svg class="bi" width="1em" height="1em"><use xlink:href="#people-circle"/></svg>
+			        </div>
+			        <h2>Cerca Specifica Pizza</h2>
+			        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+			        <a href="${pageContext.request.contextPath}/pizzaiolo/PrepareSearchPizzaServlet" class="icon-link">
+			          Vai alla funzionalità
+			          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
+			        </a>
+			      </div>			
 			</main>
 			
 			<!-- Footer -->
-			<jsp:include page="../pizzaiolo/footer.jsp" />
+			<jsp:include page="../footer.jsp" />
 	  </body>
 </html>

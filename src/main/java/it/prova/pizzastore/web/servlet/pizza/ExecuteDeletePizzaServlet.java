@@ -13,7 +13,7 @@ import it.prova.pizzastore.exceptions.ElementNotFoundException;
 import it.prova.pizzastore.service.MyServiceFactory;
 
 
-@WebServlet("/ExecuteDeletePizzaServlet")
+@WebServlet(name = "/pizzaiolo/ExecuteDeletePizzaServlet",urlPatterns = {"/pizzaiolo/ExecuteDeletePizzaServlet"})
 public class ExecuteDeletePizzaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

@@ -16,7 +16,7 @@ import it.prova.pizzastore.utility.UtilityForm;
 /**
  * Servlet implementation class ExecuteUpdateOrdineServlet
  */
-@WebServlet("/ExecuteUpdateOrdineServlet")
+@WebServlet(name = "/pizzaiolo/ExecuteUpdateOrdineServlet",urlPatterns = {"/pizzaiolo/ExecuteUpdateOrdineServlet"})
 public class ExecuteUpdateOrdineServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -38,25 +38,30 @@ public class ExecuteUpdateOrdineServlet extends HttpServlet {
 		String clienteParam = request.getParameter("cliente.id");
 		String[] pizzeParam = request.getParameterValues("pizza.id");
 		
-		Ordine ordineInstance = UtilityForm
-				.createOrdineFromParams(codiceParam, dataOrdineParam, closedParam, utenteParam, clienteParam);
-		
-		ordineInstance.setId(Long.parseLong(idOrdineParam));
-		
-		if (!UtilityForm.validateOrdineBean(ordineInstance)) {
-			request.setAttribute("insert_ordine_attr", ordineInstance);
-			request.setAttribute("errorMessage", "Attenzione sono presenti errori di validazione");
-			request.getRequestDispatcher("/pizzaiolo/editOrdine.jsp").forward(request, response);
-			return;
-		}
+
 		
 		try {
+			Ordine ordineInstance = UtilityForm
+					.createOrdineFromParams(codiceParam, dataOrdineParam, closedParam, utenteParam, clienteParam,pizzeParam);
+			
+			ordineInstance.setId(Long.parseLong(idOrdineParam));
+			
+			if (!UtilityForm.validateOrdineBean(ordineInstance)) {
+				request.setAttribute("insert_ordine_attr", ordineInstance);
+				request.setAttribute("errorMessage", "Attenzione sono presenti errori di validazione");
+				request.getRequestDispatcher("editOrdine.jsp").forward(request, response);
+				return;
+			}
+			
+			ordineInstance.costoTotaleOrdini();
+			
 			MyServiceFactory.getOrdineServiceInstance().aggiorna(ordineInstance);
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");
-			request.getRequestDispatcher("/pizzaiolo/editOrdine.jsp").forward(request, response);
+			request.getRequestDispatcher("editOrdine.jsp").forward(request, response);
 			return;
 		}
 		response.sendRedirect("ExecuteListOrdineServlet?operationResult=SUCCESS");

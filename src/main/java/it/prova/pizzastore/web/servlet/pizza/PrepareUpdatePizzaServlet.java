@@ -15,7 +15,7 @@ import it.prova.pizzastore.service.MyServiceFactory;
 /**
  * Servlet implementation class PrepareUpdatePizzaServlet
  */
-@WebServlet("/PrepareUpdatePizzaServlet")
+@WebServlet(name = "/pizzaiolo/PrepareUpdatePizzaServlet",urlPatterns = {"/pizzaiolo/PrepareUpdatePizzaServlet"})
 public class PrepareUpdatePizzaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

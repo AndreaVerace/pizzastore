@@ -3,9 +3,9 @@
 	 <head>
 	 
 	 	<!-- Common imports in pages -->
-	 	<jsp:include page="../admin/header.jsp" />
+	 	<jsp:include page="../header.jsp" />
 		<!-- Custom styles per le features di bootstrap 'Columns with icons' -->
-	   <link href="./assets/css/features.css" rel="stylesheet">
+	   <link href="../assets/css/features.css" rel="stylesheet">
 	   
 	   <title>Raccolta Clienti</title>
 	 </head>
@@ -36,7 +36,7 @@
 	   
 	   
 	   		<!-- Fixed navbar -->
-	   		<jsp:include page="./navbar.jsp"></jsp:include>
+	   		<jsp:include page="../navbar.jsp"></jsp:include>
 	    
 			
 			<!-- Begin page content -->
@@ -59,7 +59,6 @@
 				        <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. </p>
 				      </div>
 			    </div>
-			    
 			  </div>
 			  
 			  <!--  features di bootstrap 'Columns with icons'  -->
@@ -92,6 +91,6 @@
 			</main>
 			
 			<!-- Footer -->
-			<jsp:include page="../admin/footer.jsp" />
+			<jsp:include page="../footer.jsp" />
 	  </body>
 </html>

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/PrepareSearchPizzaServlet")
+@WebServlet(name = "/pizzaiolo/PrepareSearchPizzaServlet",urlPatterns = {"/pizzaiolo/PrepareSearchPizzaServlet"})
 public class PrepareSearchPizzaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
   

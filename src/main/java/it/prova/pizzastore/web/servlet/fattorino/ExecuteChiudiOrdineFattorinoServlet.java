@@ -27,7 +27,7 @@ public class ExecuteChiudiOrdineFattorinoServlet extends HttpServlet {
 		if (!NumberUtils.isCreatable(idOrdineParam)) {
 			// qui ci andrebbe un messaggio nei file di log costruito ad hoc se fosse attivo
 			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");
-			request.getRequestDispatcher("fattorino/listOrdine.jsp").forward(request, response);
+			request.getRequestDispatcher("listOrdine.jsp").forward(request, response);
 			return;
 		}
 		
@@ -41,7 +41,7 @@ public class ExecuteChiudiOrdineFattorinoServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");
-			request.getRequestDispatcher("fattorino/listOrdine.jsp").forward(request, response);
+			request.getRequestDispatcher("listOrdine.jsp").forward(request, response);
 			return;
 		}
 		

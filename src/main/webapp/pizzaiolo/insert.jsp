@@ -5,14 +5,14 @@
 	 <head>
 	 
 	 	<!-- Common imports in pages -->
-	 	<jsp:include page="./header.jsp" />
+	 	<jsp:include page="../header.jsp" />
 	   
 	   <title>Inserisci Nuova Pizza </title>
 	 </head>
 	   <body class="d-flex flex-column h-100">
 	   
 	   		<!-- Fixed navbar -->
-	   		<jsp:include page="./navbar.jsp"></jsp:include>
+	   		<jsp:include page="../navbar.jsp"></jsp:include>
 	    
 			
 			<!-- Begin page content -->
@@ -33,7 +33,7 @@
 							<h6 class="card-title">I campi con <span class="text-danger">*</span> sono obbligatori</h6>
 		
 		
-							<form method="post" action="ExecuteInsertPizzaServlet" class="row g-3" novalidate="novalidate">
+							<form method="post" action="${pageContext.request.contextPath}/pizzaiolo/ExecuteInsertPizzaServlet" class="row g-3" novalidate="novalidate">
 							
 							
 								<div class="col-md-6">
@@ -80,6 +80,6 @@
 			</main>
 			
 			<!-- Footer -->
-			<jsp:include page="./footer.jsp"/>
+			<jsp:include page="../footer.jsp"/>
 	  </body>
 </html>

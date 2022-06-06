@@ -31,12 +31,12 @@ public class ExecuteListClienteServlet extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");
-			request.getRequestDispatcher("/admin/homePageAdmin.jsp").forward(request, response);
+			request.getRequestDispatcher("homePageAdmin.jsp").forward(request, response);
 			return;
 		}
 
 		// andiamo ai risultati
-		request.getRequestDispatcher("/admin/list.jsp").forward(request, response);
+		request.getRequestDispatcher("list.jsp").forward(request, response);
 	}
 
 }

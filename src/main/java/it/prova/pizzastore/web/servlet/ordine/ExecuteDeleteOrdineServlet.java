@@ -15,7 +15,7 @@ import it.prova.pizzastore.service.MyServiceFactory;
 /**
  * Servlet implementation class ExecuteDeleteOrdineServlet
  */
-@WebServlet("/ExecuteDeleteOrdineServlet")
+@WebServlet(name = "/pizzaiolo/ExecuteDeleteOrdineServlet",urlPatterns = {"/pizzaiolo/ExecuteDeleteOrdineServlet"})
 public class ExecuteDeleteOrdineServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

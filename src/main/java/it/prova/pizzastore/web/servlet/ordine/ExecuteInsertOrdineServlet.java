@@ -19,7 +19,7 @@ import it.prova.pizzastore.utility.UtilityForm;
 /**
  * Servlet implementation class ExecuteInsertOrdineServlet
  */
-@WebServlet("/ExecuteInsertOrdineServlet")
+@WebServlet(name = "/pizzaiolo/ExecuteInsertOrdineServlet",urlPatterns = {"/pizzaiolo/ExecuteInsertOrdineServlet"})
 public class ExecuteInsertOrdineServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
   
@@ -31,19 +31,9 @@ public class ExecuteInsertOrdineServlet extends HttpServlet {
 		String clienteParam = request.getParameter("cliente.id");
 		String[] pizzeParam = request.getParameterValues("pizza.id");
 		
-		
-		
-		Ordine ordineInstance = UtilityForm
-				.createOrdineFromParams(codiceParam, dataOrdineParam, closedParam, utenteParam, clienteParam);
-		/*Set<Pizza> pizzeOrdine = new HashSet<Pizza>();
-		for(String pizza : pizzeParam) {
-			Pizza p = new Pizza(Long.parseLong(pizza));
-			pizzeOrdine.add(p);
-		}
-		ordineInstance.setPizze(pizzeOrdine);*/
-		
-		
 		try {
+			Ordine ordineInstance = UtilityForm
+					.createOrdineFromParams(codiceParam, dataOrdineParam, closedParam, utenteParam, clienteParam,pizzeParam);
 			
 			if (!UtilityForm.validateOrdineBean(ordineInstance)) {
 				request.setAttribute("insert_ordine_attr", ordineInstance);
@@ -53,6 +43,7 @@ public class ExecuteInsertOrdineServlet extends HttpServlet {
 			}
 			
 			ordineInstance.costoTotaleOrdini();
+			
 			
 			MyServiceFactory.getOrdineServiceInstance().inserisciNuovo(ordineInstance);
 			

@@ -14,7 +14,7 @@ import it.prova.pizzastore.service.MyServiceFactory;
 /**
  * Servlet implementation class ExecuteListOrdineServlet
  */
-@WebServlet("/ExecuteListOrdineServlet")
+@WebServlet(name = "/pizzaiolo/ExecuteListOrdineServlet",urlPatterns = {"/pizzaiolo/ExecuteListOrdineServlet"})
 public class ExecuteListOrdineServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -32,12 +32,12 @@ public class ExecuteListOrdineServlet extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");
-			request.getRequestDispatcher("/pizzaiolo/homePagePizzaiolo.jsp").forward(request, response);
+			request.getRequestDispatcher("homePagePizzaiolo.jsp").forward(request, response);
 			return;
 		}
 
 		// andiamo ai risultati
-		request.getRequestDispatcher("/pizzaiolo/listOrdine.jsp").forward(request, response);
+		request.getRequestDispatcher("listOrdine.jsp").forward(request, response);
 	}
 
 

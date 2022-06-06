@@ -51,7 +51,7 @@ public class PrepareDeleteClienteServlet extends HttpServlet {
 			return;
 		}
 		
-		request.getRequestDispatcher("admin/delete.jsp").forward(request, response);
+		request.getRequestDispatcher("delete.jsp").forward(request, response);
 	}
 
 

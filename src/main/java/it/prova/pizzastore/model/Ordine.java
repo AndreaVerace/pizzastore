@@ -61,9 +61,9 @@ public class Ordine {
 	
 
 	public void costoTotaleOrdini() {
-		
+		this.costoTotaleOrdine = 1;
 		if(this.pizze == null || this.pizze.isEmpty()) {
-				this.costoTotaleOrdine = 0;
+				return;
 		}
 		else {
 			for(Pizza p : this.pizze) {

@@ -30,11 +30,11 @@ public class ExecuteSearchClienteServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");
-			request.getRequestDispatcher("/admin/search.jsp").forward(request, response);
+			request.getRequestDispatcher("search.jsp").forward(request, response);
 			return;
 		}
 		
-		request.getRequestDispatcher("admin/list.jsp").forward(request, response);
+		request.getRequestDispatcher("list.jsp").forward(request, response);
 	}
 
 }

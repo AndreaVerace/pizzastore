@@ -13,7 +13,7 @@
 	<body class="d-flex flex-column h-100">
 	 
 		<!-- Fixed navbar -->
-		<jsp:include page="./navbar.jsp"></jsp:include>
+		<jsp:include page="../navbar.jsp"></jsp:include>
 	 
 	
 		<!-- Begin page content -->
@@ -40,7 +40,7 @@
 				        <h5>Lista dei risultati</h5> 
 				    </div>
 				    <div class='card-body'>
-				    	<a class="btn btn-primary " href="PrepareInsertOrdineServlet">Add New</a>
+				    	<a class="btn btn-primary " href="${pageContext.request.contextPath}/pizzaiolo/PrepareInsertOrdineServlet">Add New</a>
 				    
 				        <div class='table-responsive'>
 				            <table class='table table-striped ' >
@@ -91,7 +91,7 @@
 		</main>
 		
 		<!-- Footer -->
-		<jsp:include page="./footer.jsp" />
+		<jsp:include page="../footer.jsp" />
 		
 	</body>
 </html>

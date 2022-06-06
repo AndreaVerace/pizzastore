@@ -13,7 +13,7 @@
 	<body class="d-flex flex-column h-100">
 	 
 		<!-- Fixed navbar -->
-		<jsp:include page="./navbar.jsp"></jsp:include>
+		<jsp:include page="../navbar.jsp"></jsp:include>
 	 
 	
 		<!-- Begin page content -->
@@ -51,8 +51,9 @@
 				                        <th>Closed?</th>
 				                        <th>Fattorino id :</th>
 				                        <th>Cliente id :</th>
-				                        <th>Pizze</th>
+				                        
 				                        <th>Costo Totale Ordine</th>
+				                        <th> Azioni </th>
 				                    </tr>
 				                </thead>
 				                <tbody>
@@ -63,11 +64,13 @@
 											<td>${ordineItem.closed }</td>
 											<td>${ordineItem.utente.id }</td>
 											<td>${ordineItem.cliente.id }</td>
+											
 											<td>${ordineItem.costoTotaleOrdine }</td>
 											<td>
 									
-												<a class="btn  btn-sm btn-outline-secondary" href="${pageContext.request.contextPath}/fattorino/ExecuteVisualizzaFattorinoServlet?idOrdine=${ordineItem.id }">Visualizza</a>
-												<a class="btn  btn-sm btn-outline-primary ml-2 mr-2" href="${pageContext.request.contextPath}/fattorino/PrepareChiudiOrdineFattorinoServlet?idOrdine=${ ordineItem.id}">Chiudi Ordine</a>
+												<a class="btn  btn-sm btn-outline-secondary" href="ExecuteVisualizzaFattorinoServlet?idOrdine=${ordineItem.id }">Visualizza</a>
+												
+												<a class="btn btn-outline-danger btn-sm" href="PrepareChiudiOrdineFattorinoServlet?idOrdine=${ordineItem.id }">Delete</a>
 											</td>
 										</tr>
 									</c:forEach>
@@ -88,7 +91,7 @@
 		</main>
 		
 		<!-- Footer -->
-		<jsp:include page="./footer.jsp" />
+		<jsp:include page="../footer.jsp" />
 		
 	</body>
 </html>

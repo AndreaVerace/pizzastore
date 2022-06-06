@@ -52,7 +52,7 @@ public class ExecuteVisualizzaClienteServlet extends HttpServlet {
 			return;
 		}
 		
-		request.getRequestDispatcher("/admin/show.jsp").forward(request, response);
+		request.getRequestDispatcher("show.jsp").forward(request, response);
 	}
 
 	

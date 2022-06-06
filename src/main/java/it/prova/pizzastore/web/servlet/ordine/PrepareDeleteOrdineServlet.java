@@ -16,7 +16,7 @@ import it.prova.pizzastore.service.MyServiceFactory;
 /**
  * Servlet implementation class PrepareDeleteOrdineServlet
  */
-@WebServlet("/PrepareDeleteOrdineServlet")
+@WebServlet(name = "/pizzaiolo/PrepareDeleteOrdineServlet",urlPatterns = {"/pizzaiolo/PrepareDeleteOrdineServlet"})
 public class PrepareDeleteOrdineServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
   

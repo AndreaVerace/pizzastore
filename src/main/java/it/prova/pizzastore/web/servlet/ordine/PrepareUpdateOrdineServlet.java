@@ -16,7 +16,7 @@ import it.prova.pizzastore.service.MyServiceFactory;
 /**
  * Servlet implementation class PrepareUpdateOrdineServlet
  */
-@WebServlet("/PrepareUpdateOrdineServlet")
+@WebServlet(name = "/pizzaiolo/PrepareUpdateOrdineServlet",urlPatterns = {"/pizzaiolo/PrepareUpdateOrdineServlet"})
 public class PrepareUpdateOrdineServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
    
@@ -42,6 +42,8 @@ public class PrepareUpdateOrdineServlet extends HttpServlet {
 			
 			request.setAttribute("utenti_list_attribute", MyServiceFactory.getUtenteServiceInstance()
 					.findAllByRuolo(Ruolo.ROLE_FATTORINO));
+			
+			request.setAttribute("pizze_list_attribute", MyServiceFactory.getPizzaServiceInstance().listAllElements());
 			
 			if(ordineInstance == null) {
 				request.setAttribute("errorMessage", "Elemento non trovato.");

@@ -15,7 +15,7 @@ import it.prova.pizzastore.service.MyServiceFactory;
 /**
  * Servlet implementation class ExecuteVisualizzaPizzaServlet
  */
-@WebServlet("/ExecuteVisualizzaPizzaServlet")
+@WebServlet(name = "/pizzaiolo/ExecuteVisualizzaPizzaServlet",urlPatterns = {"/pizzaiolo/ExecuteVisualizzaPizzaServlet"})
 public class ExecuteVisualizzaPizzaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

@@ -13,6 +13,7 @@ import it.prova.pizzastore.model.Cliente;
 import it.prova.pizzastore.model.Ordine;
 import it.prova.pizzastore.model.Pizza;
 import it.prova.pizzastore.model.Utente;
+import it.prova.pizzastore.service.MyServiceFactory;
 
 public class UtilityForm {
 
@@ -57,13 +58,22 @@ public class UtilityForm {
 	}
 	
 	public static Ordine createOrdineFromParams(String codiceInputparam, String dataOrdineInputParam,
-			String closedInputParam,String idUtenteParam,String idClienteParam) {
+			String closedInputParam,String idUtenteParam,String idClienteParam,String[] idPizzeParam) throws NumberFormatException, Exception {
 
 		Ordine result = new Ordine(codiceInputparam);
 		result.setClosed(Boolean.parseBoolean(closedInputParam));
 		result.setDataOrdine(parseDateArrivoFromString(dataOrdineInputParam));
 		result.setUtente(new Utente(Long.parseLong(idUtenteParam)));
 		result.setCliente(new Cliente(Long.parseLong(idClienteParam)));
+		
+		HashSet<Pizza> pizzeOrdine = new HashSet<>();
+		
+		for(String pizza : idPizzeParam) {
+			pizzeOrdine.add(MyServiceFactory.getPizzaServiceInstance().caricaSingoloElemento(Long.parseLong(pizza)));
+		}
+		
+		result.setPizze(pizzeOrdine);
+		
 		return result;
 	}
 

@@ -18,7 +18,7 @@ import it.prova.pizzastore.utility.UtilityForm;
 /**
  * Servlet implementation class PrepareInsertOrdineServlet
  */
-@WebServlet("/PrepareInsertOrdineServlet")
+@WebServlet(name = "/pizzaiolo/PrepareInsertOrdineServlet",urlPatterns = {"/pizzaiolo/PrepareInsertOrdineServlet"})
 public class PrepareInsertOrdineServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

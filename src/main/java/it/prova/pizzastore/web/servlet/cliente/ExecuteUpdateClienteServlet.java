@@ -43,7 +43,7 @@ public class ExecuteUpdateClienteServlet extends HttpServlet {
 		if (!UtilityForm.validateClienteBean(clienteInstance)) {
 			request.setAttribute("insert_regista_attr", clienteInstance);
 			request.setAttribute("errorMessage", "Attenzione sono presenti errori di validazione");
-			request.getRequestDispatcher("/admin/insert.jsp").forward(request, response);
+			request.getRequestDispatcher("insert.jsp").forward(request, response);
 			return;
 		}
 		
@@ -53,7 +53,7 @@ public class ExecuteUpdateClienteServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");
-			request.getRequestDispatcher("/admin/edit.jsp").forward(request, response);
+			request.getRequestDispatcher("edit.jsp").forward(request, response);
 			return;
 		}
 		

@@ -3,9 +3,9 @@
 	 <head>
 	 
 	 	<!-- Common imports in pages -->
-	 	<jsp:include page="../fattorino/header.jsp" />
+	 	<jsp:include page="../header.jsp" />
 		<!-- Custom styles per le features di bootstrap 'Columns with icons' -->
-	   <link href="./assets/css/features.css" rel="stylesheet">
+	   <link href="../assets/css/features.css" rel="stylesheet">
 	   
 	   <title>Raccolta Ordini</title>
 	 </head>
@@ -41,7 +41,6 @@
 			
 			    
 			  </div>
-			  
 			  <!--  features di bootstrap 'Columns with icons'  -->
 			  <div class="container px-4 py-5" id="featured-3">
 			    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
@@ -60,6 +59,6 @@
 			</main>
 			
 			<!-- Footer -->
-			<jsp:include page="../fattorino/footer.jsp" />
+			<jsp:include page="../footer.jsp" />
 	  </body>
 </html>

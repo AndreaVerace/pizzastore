@@ -18,7 +18,7 @@ import it.prova.pizzastore.utility.UtilityForm;
 /**
  * Servlet implementation class ExecuteSearchOrdineServlet
  */
-@WebServlet("/ExecuteSearchOrdineServlet")
+@WebServlet(name = "/pizzaiolo/ExecuteSearchOrdineServlet",urlPatterns = {"/pizzaiolo/ExecuteSearchOrdineServlet"})
 public class ExecuteSearchOrdineServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
